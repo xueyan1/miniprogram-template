@@ -1,0 +1,8 @@
+/node_modules
+project.config.json
+.vscode
+.idea
+.DS_Store
+.eslintignore
+yarn.lock
+package-lock.json

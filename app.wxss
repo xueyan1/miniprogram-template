@@ -1,0 +1,210 @@
+
+.bg_ffffff {
+  background-color: white;
+}
+
+.bg_f6f6f6 {
+  background: #f6f6f6;
+}
+
+.rounded_8 {
+  border-radius: 8rpx !important;
+}
+
+.bb_1_D7D8D9 {
+  border-bottom: 1rpx solid #d7d8d9;
+}
+
+.mr_10 {
+  margin-right: 10rpx;
+}
+
+.mr_20 {
+  margin-right: 20rpx;
+}
+
+.mt_20 {
+  margin-top: 20rpx;
+}
+.mt_16 {
+  margin-top: 16rpx;
+}
+
+.mt_24 {
+  margin-top: 24rpx;
+}
+
+.mt_10 {
+  margin-top: 10rpx;
+}
+
+.p_l_r_40 {
+  padding: 0 40rpx;
+}
+
+.p_l_r_32 {
+  padding: 0 32rpx;
+}
+
+.ml_10 {
+  margin-left: 10rpx;
+}
+
+.ml_12 {
+  margin-left: 12rpx;
+}
+.ml_16 {
+  margin-left: 16rpx;
+}
+
+.ml_20 {
+  margin-left: 20rpx;
+}
+
+.pr {
+  position: relative;
+}
+
+.d_between_center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.d_column_center{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+.d_center_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.d_flex {
+  display: flex;
+  box-sizing: borer_box;
+}
+
+.align_items_center {
+  align-items: center;
+}
+
+.fontsize_20 {
+  font-size: 20rpx;
+}
+
+.fontsize_22 {
+  font-size: 22rpx;
+}
+
+.fontsize_24 {
+  font-size: 24rpx;
+}
+
+.fontsize_26 {
+  font-size: 26rpx;
+}
+
+.fontsize_28 {
+  font-size: 28rpx;
+}
+
+.fontsize_30 {
+  font-size: 30rpx;
+}
+
+.fontsize_36 {
+  font-size: 36rpx;
+}
+
+.fontsize_40 {
+  font-size: 40rpx;
+}
+
+.fontsize_42 {
+  font-size: 42rpx;
+}
+
+.fontsize_60 {
+  font-size: 60rpx;
+}
+
+.color_D1D1D6 {
+  color: #d1d1d6;
+}
+
+.color_333333 {
+  color: #333;
+}
+
+.color_999 {
+  color: #999;
+}
+
+.color_777 {
+  color: #777;
+}
+
+.color_000 {
+  color: #000;
+}
+
+.color_888888 {
+  color: #888;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.color_ffffff {
+  color: #fff;
+}
+
+.color_666666 {
+  color: #666;
+}
+
+.color_07C160 {
+  color: #07c160;
+}
+
+.fw_600 {
+  font-weight: 600;
+}
+
+.ff_Semibold {
+  font-family: SFProText-Semibold;
+}
+
+/*隐藏字段*/
+.overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.overflow_flex {
+  display: -webkit-box;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+/* 两行省略 */
+.overflow_scroll {
+  display: -webkit-box;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

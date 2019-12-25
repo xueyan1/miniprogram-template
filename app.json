@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/tabbar/index/index",
+    "pages/tabbar/list/list",
+    "pages/tabbar/mine/mine"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/tabbar/index/index",
+        "text": "首页",
+        "iconPath": "/src/images/tabbar/index.png",
+        "selectedIconPath": "/src/images/tabbar/index-s.png"
+      },
+      {
+        "pagePath": "pages/tabbar/list/list",
+        "text": "列表",
+        "iconPath": "/src/images/tabbar/list.png",
+        "selectedIconPath": "/src/images/tabbar/list-s.png"
+      },
+      {
+        "pagePath": "pages/tabbar/mine/mine",
+        "text": "我的",
+        "iconPath": "/src/images/tabbar/mine.png",
+        "selectedIconPath": "/src/images/tabbar/mine-s.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#edeef2",
+    "onReachBottomDistance": 80
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
