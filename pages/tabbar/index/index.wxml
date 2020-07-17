@@ -1,2 +1,8 @@
-<!--pages/tabbar/index/index.wxml-->
-<text>pages/tabbar/index/index.wxml</text>
+<view class="intro">
+	<view>主页 num: {{num}}</view>
+	<button bind:tap="customClick">点击加一</button>
+	<view>以下是组件A</view>
+	<one></one>
+	<view>以下是组件B</view>
+	<two></two>
+</view>

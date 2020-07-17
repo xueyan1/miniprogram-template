@@ -1,0 +1,3 @@
+<view>
+    <view>组件B own num: {{num}}</view>
+</view>
