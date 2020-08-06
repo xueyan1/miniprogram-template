@@ -1,5 +1,4 @@
 <view class="intro">
-	<view>主页 num: {{num}}</view>
 	<button bind:tap="customClick">点击加一</button>
 	<view>以下是组件A</view>
 	<one></one>

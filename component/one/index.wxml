@@ -1,4 +1,3 @@
 <view>
-    <view>组件A num: {{num}}</view>
     <button bind:tap="customClick">点击减二</button>
 </view>

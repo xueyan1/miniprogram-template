@@ -17,6 +17,8 @@ const componentConfig = {
                 type: 'Minus',
                 payload: 2
             })
+        
+          
         }
     }
 }
