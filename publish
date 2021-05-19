@@ -1,0 +1,83 @@
+#! /usr/bin/env node
+const fs = require('fs')
+const { argv } = require('yargs')
+const path = require('path')
+const stdio = require('stdio')
+const shell = require('shelljs')
+const pkgJson = fs.readFileSync('./package.json', 'utf-8')
+const extJson = fs.readFileSync('./project.config.json', 'utf-8')
+const config = fs.readFileSync('./utils/config/index.js', 'utf-8')
+const env = require('dotenv').config({
+  path: path.join(__dirname, `.env.${argv.mode}`)
+}).parsed
+
+const pkg = JSON.parse(pkgJson)
+const ext = JSON.parse(extJson)
+
+const root = process.cwd()
+const wechatCliPath = '/Applications/wechatwebdevtools.app/Contents/MacOS/cli'
+const stat = fs.statSync('/Applications/wechatwebdevtools.app')
+if (!stat.isDirectory()) {
+  shell.echo('未找到微信开发者工具，请确认是否安装开发微信工具')
+  shell.exit(1)
+}
+
+const updatePackageJson = v => {
+  pkg.version = v
+  fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2))
+}
+
+const updateConfigJs = (v,env) => {
+  const newConfig = config
+    // 修改版本号
+    .replace(/(const\s+version\s*=\s*')([^']+)(')/, `$1${v}$3`)
+    .replace(/(const\s+env\s*=\s*')([^']+)(')/, `$1${env}$3`)
+  fs.writeFileSync('./utils/config/index.js', newConfig)
+}
+
+const resetConfigJs = (v) => {
+  const newConfig = config
+    // 修改版本号
+    .replace(/(const\s+version\s*=\s*')([^']+)(')/, `$1${v}$3`)
+  fs.writeFileSync('./utils/config/index.js', newConfig)
+}
+
+const updateExtJson = appId => {
+  ext.appid = appId
+  fs.writeFileSync('./project.config.json', JSON.stringify(ext, null, 2))
+}
+const resetEstJson = () => {
+  fs.writeFileSync('./project.config.json', extJson)
+}
+
+const uploadPackage = (v, d) => {
+  const cmd = `${wechatCliPath} upload --project ${root} -v ${v} -d \'${d}\'`
+  shell.exec(cmd)
+  resetEstJson()
+  resetConfigJs(v)
+}
+
+const run = async () => {
+  shell.echo('当前版本:', pkg.version)
+  let ver = await stdio.ask('请输入新版本（不填写则自动更新小版本号）', {})
+  const comment = await stdio.ask('请输入更新说明', {})
+
+  if (!ver.trim()) {
+    const vs = pkg.version.split('.')
+    vs[vs.length - 1] = +vs[vs.length - 1] + 1
+    ver = vs.join('.')
+  }
+
+  if (!/^v\d+\.\d+\.\d+$/.test(ver)) {
+    shell.echo('不规范的版本号')
+    shell.exit(1)
+  }
+
+  shell.echo('新版本:', ver)
+
+  updatePackageJson(ver)
+  updateConfigJs(ver, argv.mode || 'prod')
+  updateExtJson(env.APPID)
+  uploadPackage(ver, comment)
+}
+run()

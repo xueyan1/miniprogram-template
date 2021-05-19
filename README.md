@@ -59,3 +59,6 @@ const nextPageConfig = connect(mapStateToProps, mapDispatchToProps)(pageConfig)
 Page(nextPageConfig)
 
 ```
+#### 小程序上传相应环境代码执行命令
+    - 测试环境 npm run  publish:test
+    - 正式环境 npm run  publish

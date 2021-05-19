@@ -1,11 +1,20 @@
 {
+  "name": "miniprogram-template",
+  "description": "小程序模版",
+  "version": "v0.0.1",
   "scripts": {
+    "publish": "npm run publish:prod",
+    "publish:prod": "NODE_ENV=production  ./publish --mode prod",
+    "publish:test": "NODE_ENV=development  ./publish --mode test",
     "lint": "npm run lint:js && npm run lint:style",
     "lint:fix": "eslint --ext .js,.wxs . --fix && stylelint './**/*.wxss' --fix",
     "lint:js": "eslint --ext .js,.wxs .",
     "lint:style": "stylelint './**/*.wxss'",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.wxs"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.6.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
@@ -19,13 +28,17 @@
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
+    "shelljs": "^0.8.4",
     "standard": "^13.0.2",
+    "stdio": "^2.1.1",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-wxss": "^2.4.2",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
-    "stylelint-order": "^3.0.0"
+    "stylelint-order": "^3.0.0",
+    "yargs": "^17.0.1",
+    "dotenv": "^9.0.2"
   },
   "lint-staged": {
     "**/*.{js,jsx,wsx}": "npm run lint-staged:js"
@@ -34,8 +47,5 @@
     "hooks": {
       "pre-commit": "npm run lint-staged"
     }
-  },
-  "dependencies": {
-    "@vant/weapp": "^1.3.3"
   }
 }
